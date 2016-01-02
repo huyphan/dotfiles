@@ -1,7 +1,8 @@
 export AUTO_TITLE_SCREENS="NO"
 
 autoload -U colors && colors
-export PS1="%{%F{yellow}%}%n%{%f%}@%{%F{green}%}%m%{%F{green}%}(%~)%{$%f%}%  "
+export PS1="%{%F{yellow}%}%n%{%f%}@%{%F{green}%}%m%{%F{green}%}(%~)
+%{$%f%} "
 set-title() {
     echo -e "\e]0;$*\007"
 }
