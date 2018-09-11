@@ -1,8 +1,8 @@
 export AUTO_TITLE_SCREENS="NO"
+setopt prompt_subst
 
 autoload -U colors && colors
-export PS1="%{%F{yellow}%}%n%{%f%}@%{%F{green}%}%m%{%F{green}%}(%~)
-%{$%f%} "
+
 set-title() {
     echo -e "\e]0;$*\007"
 }
@@ -44,3 +44,15 @@ zmodload -a colors
 zmodload -a autocomplete
 zmodload -a complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+function collapse_pwd {
+    echo $(pwd | sed -e "s,^$HOME,~,")
+}
+
+export PROMPT="%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}
+$ "
+
+alias tmux='export TERM=screen-256color; tmux -2'
+# Enable TMUX if not enabled
+if [ "$TMUX" = "" ]; then tmux; fi
+
