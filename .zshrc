@@ -45,12 +45,17 @@ zmodload -a autocomplete
 zmodload -a complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-function collapse_pwd {
+collapse_pwd() {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-export PROMPT="%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}
+prompt () {
+    PROMPT="%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}
 $ "
+}
+
+precmd_functions+=(prompt)
+
 
 alias tmux='export TERM=screen-256color; tmux -2'
 # Enable TMUX if not enabled
