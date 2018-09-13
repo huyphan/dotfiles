@@ -49,8 +49,12 @@ collapse_pwd() {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
+virtualenv_prompt_info() {
+    [ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV)) "
+}
+
 prompt () {
-    PROMPT="%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}
+    PROMPT="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}% %{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}
 $ "
 }
 
