@@ -96,9 +96,6 @@ export LS_COLORS="rs=0:di=36;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-export ZSH_THEME="powerlevel10k/powerlevel10k"
-source $ZSH/oh-my-zsh.sh
-
 bindkey -v
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
