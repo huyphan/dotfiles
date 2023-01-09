@@ -28,7 +28,8 @@
     # Enable vim compatible mode, avoid changing origin vim key bindings
     vimcompatible = true
     filetree_direction = "left"
-
+    bootstrap_after = 'myspacevim#after'
+    
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
