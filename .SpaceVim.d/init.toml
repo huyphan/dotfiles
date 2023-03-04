@@ -29,6 +29,7 @@
     vimcompatible = true
     filetree_direction = "left"
     bootstrap_after = 'myspacevim#after'
+    relativenumber = false
     
 # Enable autocomplete layer
 [[layers]]
